@@ -1,13 +1,21 @@
 {
-  "name": "node-app",
+  "name": "node-docker-app",
   "version": "1.0.0",
-  "description": "Node.js on Docker using Jenkins Pipeline",
-  "author": "Dean Houari <dhouari@checkpoint.com>",
+  "description": "basic node web app",
   "main": "webserver.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node webserver.js"
   },
-  "dependencies": {
-    "express": "^4.16.1"
-  }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chkp-dhouari/node-app"
+  },
+  "keywords": [
+    "node",
+    "docker",
+    "dockerfile"
+  ],
+  "author": "dhouari@checkpoint.com",
+  "license": "ISC"
 }
