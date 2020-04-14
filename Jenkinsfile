@@ -1,12 +1,12 @@
 node() {
    
 
-    stage('Clone repository') 
+   stage('Clone repository') {
 
         checkout scm
     }
 
-    stage('Build image') 
+   stage('Build image') {
 
        def webapp = docker.build("chkp-dhouari/node-app")
     }
