@@ -24,7 +24,7 @@ node {
 
     stage('Push to Registry') {
         
-        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
+        docker.withRegistry('https://hub.docker.com/repository/docker/dhouari/cpdevops', 'docker_hub') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
