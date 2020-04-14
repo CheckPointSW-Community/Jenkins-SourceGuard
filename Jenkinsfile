@@ -9,9 +9,8 @@ node() {
 
    stage('Build Docker image') {
 
-         webapp.inside {
-           sh 'docker build -t chkp-dhouari/myapp .'
-       }
+         sh 'docker build -t chkp-dhouari/myapp .'
+       
     }
 
    stage('Push image') {
