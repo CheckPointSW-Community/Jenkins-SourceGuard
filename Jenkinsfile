@@ -1,24 +1,22 @@
 node {
-    def app
+    def nodeapp
 
     stage('Clone repository') {
-        
 
         checkout scm
     }
 
-    stage('Build Docker image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
+    stage('Docker image Build') {
+        /* Using Dockerfile to build the container image*/
 
-        app = docker.build("dhouari/nodeapp")
+        nodeapp = docker.build("dhouari/nodeapp")
     }
 
     stage('Push to Registry') {
         
         docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            nodeapp.push("${env.BUILD_NUMBER}")
+            nodeapp.push("latest")
         }
     }
 }
