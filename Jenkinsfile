@@ -20,7 +20,7 @@ node {
     #   app.inside {
     #        sh 'curl http://localhost:8000 || exit 1'
     #   }
-    }
+    # }
 
     stage('Push to Registry') {
         
