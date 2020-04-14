@@ -11,6 +11,7 @@ node() {
 
       webapp.inside {
          sh 'docker build -t chkp-dhouari/myapp .'
+        }
     }
 
     stage('Test Docker image') {
