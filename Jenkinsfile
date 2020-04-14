@@ -1,23 +1,20 @@
-node {
+node() {
    
 
-    stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
+    stage('Clone repository') 
 
         checkout scm
     }
 
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
+    stage('Build image') 
 
-       def app = docker.build("chkp-dhouari/node-app")
+       def webapp = docker.build("chkp-dhouari/node-app")
     }
 
     stage('Test image') {
-        /* Ideally, we would run a test framework against our image ;-) */
+        
 
-        app.inside {
+        webapp.inside {
             sh 'echo "Tests passed"'
         }
     }
