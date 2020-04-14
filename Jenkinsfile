@@ -14,12 +14,12 @@ node {
         app = docker.build("dhouari/nodeapp")
     }
 
-    stage('Test Dockerimage') {
+    # stage('Test Dockerimage') {
        
 
-        app.inside {
-            sh 'curl http://localhost:8000 || exit 1'
-        }
+    #   app.inside {
+    #        sh 'curl http://localhost:8000 || exit 1'
+    #   }
     }
 
     stage('Push to Registry') {
