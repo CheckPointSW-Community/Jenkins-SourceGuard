@@ -9,7 +9,7 @@ node() {
 
    stage('Build Docker image') {
 
-        webapp = docker.build("/usr/local/bin/docker", "chkp-dhouari/node-app")
+        webapp = docker.build("/usr/local/bin", "chkp-dhouari/node-app")
     }
 
     stage('Test Docker image') {
