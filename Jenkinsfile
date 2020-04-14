@@ -9,7 +9,7 @@ node() {
 
    stage('Build Docker image') {
 
-         sh './docker build -t chkp-dhouari/myapp .'
+         sh 'sudo docker build -t chkp-dhouari/myapp .'
        
     }
 
