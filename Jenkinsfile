@@ -14,14 +14,6 @@ node {
         app = docker.build("dhouari/nodeapp")
     }
 
-    # stage('Test Dockerimage') {
-       
-
-    #   app.inside {
-    #        sh 'curl http://localhost:8000 || exit 1'
-    #   }
-    # }
-
     stage('Push to Registry') {
         
         docker.withRegistry('https://hub.docker.com/repository/docker/dhouari/cpdevops', 'docker_hub') {
