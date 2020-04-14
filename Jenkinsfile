@@ -1,26 +1,32 @@
-node() {
-   
-   def webapp
+node {
+    def app
 
-   stage('Clone repository') {
+    stage('Clone repository') {
+        
 
         checkout scm
     }
 
-   stage('Build Docker image') {
+    stage('Build Docker image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
 
-         sh 'docker build -t chkp-dhouari/myapp .'
-       
+        app = docker.build("dhouari/nodeapp")
     }
 
-   stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. */
-          docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
-             webapp.push("${env.BUILD_NUMBER}")
-             webapp.push("latest")
+    stage('Test Dockerimage') {
+       
+
+        app.inside {
+            sh 'curl http://localhost:8000 || exit 1'
+        }
+    }
+
+    stage('Push to Registry') {
+        
+        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
         }
     }
 }
