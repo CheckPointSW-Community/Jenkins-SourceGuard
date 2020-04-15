@@ -25,9 +25,11 @@ pipeline {
            
            
            steps {
+              
+              script{
              
-             sh 'docker save f5devcentral/f5-demo-app -o f5.tar'
-           
+                 sh 'docker save f5devcentral/f5-demo-app -o f5.tar'
+               }
              }
   
           }
@@ -37,7 +39,7 @@ pipeline {
         
             steps {
 
-                sh '/sourceguard-cli --src ./'
+                sh '/sourceguard-cli --img ./'
 
                }
           }
