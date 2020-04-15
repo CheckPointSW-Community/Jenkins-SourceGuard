@@ -34,13 +34,6 @@ pipeline {
         
        stage('Building image') {
         
-             agent {
-                  docker {
-                   
-                    args '-v /var/run/docker.sock:/var/run/docker.sock'
-                  }
-               }
-            
              steps {
          
                 script {
