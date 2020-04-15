@@ -4,6 +4,7 @@ pipeline {
       agent {
 
           docker { image 'sourceguard/sourceguard-cli:latest' }
+          docker { image 'f5devcentral/f5-demo-app' }
 
           }
     
