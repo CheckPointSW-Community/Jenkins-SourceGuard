@@ -6,14 +6,11 @@ node {
         checkout scm
     }
     
-    agent {
-            docker { image 'sourceguard/sourceguard-cli' }
-             }
     
     stage('Scan Source Code with SourceGuard') {
         
        
-        sh '/sourceguard-cli -src web-server.js /'
+        sh '/sourceguard-cli -src  ./'
         
       }
 
