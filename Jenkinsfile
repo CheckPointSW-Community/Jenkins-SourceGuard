@@ -30,11 +30,7 @@ pipeline {
           }
        
         stage('Docker image Build') {
-           agent {
-
-              docker { image 'docker' }
-
-                }
+           
            steps{
 
               sh '/docker build -t dhouari/nodeapp ./'
@@ -44,11 +40,7 @@ pipeline {
         }
          
         stage('Docker image sve') {
-           agent {
-
-              docker { image 'docker' }
-
-                }
+           
            
            steps{
 
