@@ -47,12 +47,19 @@ pipeline {
        
        stage('SourceGuard Container Image Scan') {
 
-           
-           steps {
+           agent {
+              // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+                dockerfile {
+                   filename 'dhouari/nodeapp'
+                   args '-v /tmp:/tmp'
+                 
+                    }
+                 }
+            steps {
               
            
                  
-                sh 'docker save dhouari/jenkinstest -o app.tar'
+                sh 'docker save dhouari/nodeapp -o app.tar'
                 sh '/sourceguard-cli --img ./'
  
                  
