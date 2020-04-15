@@ -7,11 +7,7 @@ node {
     }
     
     stage('Scan Source Code with SourceGuard') {
-         steps {
-           environmentVariables {
-             envs(export SG_CLIENT_ID=91b8e086-6b2e-4f01-8b48-b931706fef51)
-              }
-         }
+       
         sh 'chmod +x sourceguard-cli'
         sh 'export SG_CLIENT_ID=f646d88e-2215-494b-996e-1f184d7e26b7'
         sh 'export SG_SECRET_KEY=aa107ca1d1bb4c66ba13210075f91197'
