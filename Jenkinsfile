@@ -8,7 +8,7 @@ node {
     
     stage('Scan Source Code with SourceGuard') {
        
-       
+        sh 'chmod +x sourceguard-cli'
       
         sh './sourceguard-cli -src web-server.js'
         
