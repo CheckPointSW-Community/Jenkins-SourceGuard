@@ -7,10 +7,13 @@ node {
     }
     
     stage('Scan Source Code with SourceGuard') {
+        environment {
+       SG_CLIENT_ID = '5bdd3443-3919-4acc-8212-ed140185bc0d'
+       SG_SECRET_KEY = '15c8074c194b4eb8988cfe010309ff78'
+        }
        
         sh 'chmod +x sourceguard-cli'
-        sh 'export SG_CLIENT_ID=5bdd3443-3919-4acc-8212-ed140185bc0d'
-        sh 'export SG_SECRET_KEY=15c8074c194b4eb8988cfe010309ff78'
+       
         sh './sourceguard-cli -src web-server.js'
         
     }
