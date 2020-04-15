@@ -35,27 +35,7 @@ pipeline {
             }
         }
        
-        stage('Docker image Build') {
-        /* Using Dockerfile to build the container image*/
-          
-          steps {
-             
-              nodeapp = docker.build("dhouari/nodeapp")
-            }
-          
-        }
-
-       stage('Push to Docker Registry') {
-           
-           steps {
         
-            docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
-               nodeapp.push("${env.BUILD_NUMBER}")
-               nodeapp.push("latest")
-               
-            }
-          }
-       }
     }
 
 }
