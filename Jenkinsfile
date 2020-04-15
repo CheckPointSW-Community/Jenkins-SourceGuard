@@ -13,7 +13,7 @@ pipeline {
               SG_SECRET_KEY = '15c8074c194b4eb8988cfe010309ff78'
               registry = "dhouari/jenkinsSG"
               registryCredential = 'docker_hub'
-              dockerImage = 'chkp-dhouari/nodeapp'
+              dockerImage = ''
              
             }
     
