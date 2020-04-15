@@ -13,7 +13,7 @@ pipeline {
               SG_SECRET_KEY = '15c8074c194b4eb8988cfe010309ff78'
               registry = "dhouari/jenkinsSG"
               registryCredential = 'docker_hub'
-              dockerImage = ''
+              
              
             }
     
@@ -36,45 +36,26 @@ pipeline {
 
                 sh '/sourceguard-cli --src ./'
 
-            }
-        }
-       
-        stage('Initialize'){
-       
-           steps {
-             def dockerHome = tool 'myDocker'
-             env.PATH = "${dockerHome}/bin:${env.PATH}"
              }
         }
+       
+       
+        
         stage('Docker image Build') {
         /* Using Dockerfile to build the container image*/
             
              steps {
                
                  script {
+  
                     
-                
+                     def DockerImage = docker.build("dhouari/nodeapp")
                     
-                    def dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                     
-                     } 
+                    } 
                }
          }
 
-       stage('Push to Docker Registry') {
-        
-           steps {
-                
-               script {
-                   
-                    docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
-                 
-                          }
-                  }
-            }
        
-       }
         
     }
 
