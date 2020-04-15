@@ -28,8 +28,15 @@ pipeline {
              }
   
           }
-
-       
+                 
+       stage('image build') {
+            steps {
+               agent {
+                 docker { image 'dhouari/nodeapp' }
+                 
+                    }
+                 }
+            }
        stage('SourceGuard Container Image Scan') {
 
            agent {
