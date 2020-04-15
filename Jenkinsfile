@@ -32,21 +32,17 @@ pipeline {
        stage('image build') {
             steps {
                agent {
-                 docker { image 'dhouari/nodeapp' }
-                 
-                    }
-                 }
-            }
-       stage('SourceGuard Container Image Scan') {
-
-           agent {
-              // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
-                dockerfile {
+                   dockerfile {
                    filename 'dhouari/nodeapp'
                    args '-v /tmp:/tmp'
                  
                     }
                  }
+            }
+          
+       stage('SourceGuard Container Image Scan') {
+
+          
             steps {
               
            
