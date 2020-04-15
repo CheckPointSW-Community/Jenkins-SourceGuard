@@ -30,7 +30,7 @@ pipeline {
           }
         
         
-        stage('SourceGuard') {
+        stage('SourceGuard Code Scan') {
 
             steps {
 
@@ -49,12 +49,23 @@ pipeline {
         
                 sh 'docker build -t dhouari/nodeapp:latest .'
           
-                   
-        
-               }
+                   }
      
-           }
-   
+              }
+
+       
+       stage('SourceGuard Container Image Scan') {
+
+           agent any 
+           steps {
+
+                sh 'docker save dhouari/nodeapp -o nodeapp.tar'
+                sh '/sourceguard-cli --img ./'
+
+             }
+        }
+       
+       
         
 
        
