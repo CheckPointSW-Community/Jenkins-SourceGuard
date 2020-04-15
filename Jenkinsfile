@@ -11,6 +11,8 @@ node {
         
         def SG_CLIENT_ID = '5bdd3443-3919-4acc-8212-ed140185bc0d'
         def SG_SECRET_KEY = '15c8074c194b4eb8988cfe010309ff78'
+        sh 'echo ${SG_CLIENT_ID}'
+        sh 'echo ${SG_SECRET_KEY}'
         sh 'chmod +x sourceguard-cli'
         sh './sourceguard-cli -src  .'
         
