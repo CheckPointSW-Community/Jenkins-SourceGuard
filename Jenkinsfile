@@ -34,20 +34,13 @@ pipeline {
         
             steps {
 
-                sh '/sourceguard-cli --src ./'
+                sh '/sourceguard-cli --img ./'
 
                }
           }
        
-         stage("build conatiner image") {
-           
-             agent {
-                dockerfile {
-                   filename "Dockerfile"
-                   label "nodeapp"
-                }
-            }
-         } 
+          
+         
     }
 
 }
