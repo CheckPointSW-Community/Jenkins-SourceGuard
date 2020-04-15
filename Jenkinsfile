@@ -28,21 +28,6 @@ pipeline {
              }
   
           }
-        
-     
-       
-        
-       stage('Building image') {
-        
-             agent {
-              // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
-                dockerfile {
-                   filename 'dhouari/nodeappjenkins'
-                   args '-v /tmp:/tmp'
-                 
-                    }
-                 }
-            }
 
        
        stage('SourceGuard Container Image Scan') {
