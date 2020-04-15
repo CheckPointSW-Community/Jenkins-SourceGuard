@@ -22,11 +22,7 @@ pipeline {
       
         stage('convert docker image to .tar') {
            
-           agent {
-
-             docker { image 'f5devcentral/f5-demo-app' }
-          
-              }
+           
            
            steps {
              
