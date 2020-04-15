@@ -38,14 +38,16 @@ pipeline {
 
                }
           }
-       stage("build conatiner image") {
-           agent {
-             dockerfile {
-                 filename "Dockerfile"
-                 label "nodeapp"
-           }
-        }
-        
+       
+         stage("build conatiner image") {
+           
+             agent {
+                dockerfile {
+                   filename "Dockerfile"
+                   label "nodeapp"
+                }
+            }
+         } 
     }
 
 }
