@@ -40,7 +40,7 @@ pipeline {
          
                 script {
                    
-                    sh 'docker build -t dhouari/nodeapp .'
+                    sh 'docker build -t dhouari/jenkinstest .'
           
                    }
       
@@ -55,7 +55,7 @@ pipeline {
               
               script {
                  
-                sh 'docker save dhouari/nodeapp -o nodeapp.tar'
+                sh 'docker save dhouari/jenkinstest -o app.tar'
                 sh '/sourceguard-cli --img ./'
  
                  }
