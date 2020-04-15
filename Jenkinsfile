@@ -4,7 +4,7 @@ pipeline {
       agent {
 
           docker { image 'sourceguard/sourceguard-cli:latest' }
-          docker { image 'f5devcentral/f5-demo-app' }
+          
 
           }
     
@@ -17,10 +17,16 @@ pipeline {
               
              
             }
-    
-    stages {
-    
+   
+   stages{
+      
         stage('convert docker image to .tar') {
+           
+           agent {
+
+             docker { image 'sourceguard/sourceguard-cli:latest' }
+          
+              }
            
            steps {
              
