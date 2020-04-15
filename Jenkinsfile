@@ -34,34 +34,28 @@ pipeline {
         
        stage('Building image') {
         
-             steps {
-         
-                script {
-                   
-                    sh 'docker build -t dhouari/jenkinstest .'
-          
-                   }
-      
-                }
+             agent {
+              // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+                dockerfile {
+                   filename 'dhouari/nodeappjenkins'
+                   args '-v /tmp:/tmp'
+                 
+                    }
+                 }
             }
 
        
        stage('SourceGuard Container Image Scan') {
 
-           agent {
-                  docker {
-                    image 'google/cloud-sdk:latest'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock'
-                  }
-               }
+           
            steps {
               
-              script {
+           
                  
                 sh 'docker save dhouari/jenkinstest -o app.tar'
                 sh '/sourceguard-cli --img ./'
  
-                 }
+                 
               
               }
           }
