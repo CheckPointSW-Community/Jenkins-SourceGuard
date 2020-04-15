@@ -28,33 +28,17 @@ pipeline {
              }
   
           }
-                 
-       stage('image build') {
+         
+       
+         stage('SourceGuard Code Scan') {
+        
             steps {
-               agent {
-                   dockerfile {
-                   filename 'dhouari/nodeapp'
-                   args '-v /tmp:/tmp'
-                 
-                    }
-                 }
-            }
-          
-        }
-       stage('SourceGuard Container Image Scan') {
 
-          
-            steps {
-              
-           
-                 
-                sh 'docker save dhouari/nodeapp -o app.tar'
-                sh '/sourceguard-cli --img ./'
- 
-                 
-              
-              }
+                sh '/sourceguard-cli --src ./'
+
+               }
           }
+       
         
     }
 
