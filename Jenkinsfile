@@ -1,12 +1,11 @@
 pipeline {
-    
-    def nodeapp
+   
 
     agent {
 
         docker { image 'sourceguard/sourceguard-cli:latest' }
 
-    }
+       }
      
      environment {
          
@@ -26,9 +25,9 @@ pipeline {
              
              checkout scm
            
-           }
+             }
   
-         }
+          }
         
         
         stage('SourceGuard') {
@@ -44,27 +43,31 @@ pipeline {
         
         stage('Docker image Build') {
         /* Using Dockerfile to build the container image*/
-            steps {
-                scripts {
+            
+             steps {
+               
+                 scripts {
                     
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                      
-                } 
-             }
+                     } 
+               }
          }
 
        stage('Push to Docker Registry') {
         
            steps {
-                scripts {
+                
+               scripts {
                    
                     docker.withRegistry( '', registryCredential ) {
                     dockerImage.push()
                  
-                    }
-                }
+                          }
+                  }
             }
        
+       }
         
     }
 
