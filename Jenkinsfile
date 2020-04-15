@@ -48,7 +48,7 @@ pipeline {
                
                  script {
                     
-                    sh 'usermod -a -G docker jenkins'
+                
                     
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                      
