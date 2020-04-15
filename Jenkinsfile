@@ -47,9 +47,9 @@ pipeline {
             
              steps {
         
-                
+                sh 'docker build -t dhouari/nodeapp:latest .'
           
-                   docker.build registry + ":$BUILD_NUMBER"
+                   
         
                }
      
