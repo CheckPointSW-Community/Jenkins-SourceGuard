@@ -30,7 +30,7 @@ pipeline {
           }
        
         stage('Docker image Build') {
-            
+           agent none
            steps{
 
               sh 'docker build -t dhouari/nodeapp .'
@@ -40,7 +40,7 @@ pipeline {
         }
          
         stage('Docker image sve') {
-            
+           agent none
            steps{
 
               sh 'docker save dhouari/nodeapp -o node.tar'
