@@ -28,13 +28,32 @@ pipeline {
              }
   
           }
-         
        
-         stage('SourceGuard Code Scan') {
+        stage('Docker image Build') {
+            
+           steps{
+
+              sh 'docker build -t dhouari/nodeapp .'
+              
+           }
+             
+        }
+         
+        stage('Docker image Build') {
+            
+           steps{
+
+              sh 'docker save dhouari/nodeapp -o node.tar'
+              
+           }
+             
+        }
+       
+        stage('SourceGuard Code Scan') {
         
             steps {
 
-                sh '/sourceguard-cli --img ./'
+                sh '/sourceguard-cli --img node.tar/'
 
                }
           }
