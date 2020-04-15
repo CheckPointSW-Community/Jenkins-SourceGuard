@@ -39,7 +39,7 @@ pipeline {
              
         }
          
-        stage('Docker image Build') {
+        stage('Docker image sve') {
             
            steps{
 
