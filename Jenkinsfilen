@@ -1,10 +1,25 @@
 node {
     def nodeapp
+    
+    agent {
+
+          docker { image 'sourceguard/sourceguard-cli:latest' }
+
+          }
 
     stage('Clone Github repository') {
 
         checkout scm
     }
+    
+    stage('SourceGuard Code Scan') {
+        
+            
+
+                sh '/sourceguard-cli --src ./'
+
+            }
+       
     
  
 
