@@ -48,6 +48,17 @@ pipeline {
              
            }
         
+        
+            stage('Docker save') {
+           
+               steps{
+
+                  sh 'docker save dhouari/nodeapp -o  myapp.tar'
+              
+               }
+             
+            }
+        
          stage('SourceGuard Image Scan') {
             
             agent {
@@ -59,7 +70,7 @@ pipeline {
             steps {
 
                
-                sh '/sourceguard-cli --img myapp.tar/'
+                sh '/sourceguard-cli --img ./'
 
                }
             
