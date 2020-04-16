@@ -1,12 +1,5 @@
 pipeline {
    
-        
-      agent {
-
-          docker { image 'sourceguard/sourceguard-cli:latest' }
-
-          }
-    
      
      environment {
          
@@ -17,7 +10,7 @@ pipeline {
              
             }
     
-    stages {
+     stages {
     
         stage('Clone Github repository') {
            
@@ -51,7 +44,12 @@ pipeline {
         }
        
         stage('SourceGuard Code Scan') {
-        
+            
+            agent {
+
+              docker { image 'sourceguard/sourceguard-cli:latest' }
+
+              }
             steps {
 
                 sh '/sourceguard-cli --img node.tar/'
