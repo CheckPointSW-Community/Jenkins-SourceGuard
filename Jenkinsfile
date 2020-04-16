@@ -21,7 +21,7 @@ pipeline {
   
           }
         
-         stage('SourceGuard Code Scan') {
+         stage('SourceGuard Source Code Scan') {
             
             agent {
 
@@ -47,7 +47,7 @@ pipeline {
            }
         
         
-            stage('Docker save') {
+            stage('Prep Docker Image for Scan') {
            
                steps{
 
@@ -57,7 +57,7 @@ pipeline {
              
             }
         
-         stage('SourceGuard Image Scan') {
+         stage('SourceGuard Docker Image Scan') {
             
             agent {
 
