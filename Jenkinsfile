@@ -41,8 +41,8 @@ pipeline {
            
             steps{
 
-              sh 'docker build -t dhouari/nodeapp .'
-              sh 'docker save dhouari/nodeapp -o  myapp.tar'
+              sh 'docker build -t dhouari/sg .'
+             
               
               }
              
@@ -53,7 +53,7 @@ pipeline {
            
                steps{
 
-                  sh 'docker save dhouari/nodeapp -o  myapp.tar'
+                  sh 'docker save dhouari/sg -o  sg.tar'
               
                }
              
