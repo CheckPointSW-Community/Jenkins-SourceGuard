@@ -5,7 +5,7 @@ pipeline {
      environment {
          
               SG_CLIENT_ID = credentials('clientid')
-              SG_SECRET_KEY = credentials('secretkey')
+              SG_SECRET_KEY = 'd45ae742081d48d4803c7e3ba357c6c5'
              
             }
     
