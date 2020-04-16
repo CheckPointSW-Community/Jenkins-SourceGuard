@@ -45,11 +45,11 @@ pipeline {
             
             agent {
 
-              docker { image 'sourceguard/sourceguard-cli:latest' }
+               docker { image 'sourceguard/sourceguard-cli:latest' }
 
-               }
+                }
             
-            steps {
+             steps {
 
                
                 sh '/sourceguard-cli --img "sg.tar"/'
