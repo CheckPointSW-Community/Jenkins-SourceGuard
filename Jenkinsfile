@@ -22,26 +22,7 @@ pipeline {
   
           }
        
-        stage('Docker image Build') {
-           
-           steps{
-
-              sh 'docker build -t dhouari/nodeapp .'
-              
-           }
-             
-        }
-         
-        stage('Docker image sve') {
-           
-           
-           steps{
-
-              sh 'docker save dhouari/nodeapp -o node.tar'
-              
-           }
-             
-        }
+        
        
         stage('SourceGuard Code Scan') {
             
@@ -52,7 +33,7 @@ pipeline {
               }
             steps {
 
-                sh '/sourceguard-cli --img node.tar/'
+                sh '/sourceguard-cli --src ./'
 
                }
           }
