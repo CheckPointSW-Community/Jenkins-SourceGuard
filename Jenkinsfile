@@ -42,6 +42,7 @@ pipeline {
             steps{
 
               sh 'docker build -t dhouari/nodeapp .'
+              sh 'docker save dhouari/nodeapp -o  myapp.tar'
               
               }
              
@@ -57,7 +58,7 @@ pipeline {
             
             steps {
 
-                sh 'docker save dhouari/nodeapp -o  myapp.tar'
+               
                 sh '/sourceguard-cli --src myapp.tar/'
 
                }
