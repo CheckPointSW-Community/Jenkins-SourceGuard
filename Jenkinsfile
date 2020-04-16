@@ -2,12 +2,6 @@ pipeline {
    
      
      agent any
-     environment {
-         
-              SG_CLIENT_ID = 'c90c46bd-a52f-4f8a-8da9-72c8a92d5a92'
-              SG_SECRET_KEY = '82dd3d65257c4b50a14471921e278309'
-             
-            }
     
      stages {
     
@@ -22,6 +16,13 @@ pipeline {
           }
         
          stage('SourceGuard Source Code Scan') {
+            
+            environment {
+         
+              SG_CLIENT_ID = 'c90c46bd-a52f-4f8a-8da9-72c8a92d5a92'
+              SG_SECRET_KEY = '82dd3d65257c4b50a14471921e278309'
+             
+            }
             
             agent {
 
