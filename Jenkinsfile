@@ -22,11 +22,20 @@ pipeline {
              }
   
           }
-       
         
-       
-       
-       
+         stage('SourceGuard Code Scan') {
+            
+            agent {
+
+              docker { image 'sourceguard/sourceguard-cli:latest' }
+
+               }
+            steps {
+
+                sh '/sourceguard-cli --src ./'
+
+               }
+            }
          
         stage('Docker image Build') {
            
@@ -34,12 +43,29 @@ pipeline {
 
               sh 'docker build -t dhouari/nodeapp .'
               
-            }
+              }
              
-         }
+           }
+        
+         stage('SourceGuard Image Scan') {
+            
+            agent {
 
+              docker { image 'sourceguard/sourceguard-cli:latest' }
+
+               }
+            
+            steps {
+
+                sh 'docker save dhouari/nodeapp -o  myapp.tar'
+                sh '/sourceguard-cli --src myapp.tar/'
+
+               }
+            
+            }
+        
           
          
-    }
+     }
 
 }
