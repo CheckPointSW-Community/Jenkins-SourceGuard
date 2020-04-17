@@ -22,7 +22,7 @@ pipeline {
             
             agent {
 
-              docker { image 'sourceguard/sourceguard-cli:latest' }
+              docker { image 'sourceguard/sourceguard-cli' }
 
                 }
             steps {
