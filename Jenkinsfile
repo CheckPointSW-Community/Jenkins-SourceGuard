@@ -27,7 +27,7 @@ pipeline {
                 }
              steps {
 
-                sh '/sourceguard-cli --src ./'
+                sh '/sourceguard-cli -src ./'
 
                 } 
           }
