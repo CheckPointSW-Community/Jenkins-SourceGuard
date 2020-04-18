@@ -49,16 +49,7 @@ pipeline {
              
            }
         
-       stage('Docker image Build') { 
-            
-               agent any
-               steps{
-
-                  sh 'docker save dhouari/sg -o  sg.tar'
-              
-               }
-             
-            }
+      
         
      } 
 }
