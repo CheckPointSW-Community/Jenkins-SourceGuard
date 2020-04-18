@@ -1,14 +1,6 @@
 pipeline {
       agent any
-      environment {
-            withCredentials([
-                string(
-                  credentialsId: 'SG_CLIENT_ID' 
-                  variable: 'SG_SECRET_KEY')
-               ])
-         
-              
-               }
+      
       
      stages {
     
