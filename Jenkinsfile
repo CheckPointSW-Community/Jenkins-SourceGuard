@@ -34,7 +34,7 @@ pipeline {
          
        stage('Docker image Build') {
            
-             agent any
+            
              
              steps{
 
@@ -45,7 +45,27 @@ pipeline {
              
            }
         
-      
-        
+       stage('Docker image prep') {
+           
+             
+             
+             steps{
+
+              sh 'docker save dhouari/sg -o sg.tar'
+             
+              
+              }
+             
+           }
+           stage('Docker image scan') {
+             
+                 steps {
+                    
+              sh './sourceguard-cli -src .'
+
+                } 
+           }
+   
+                 
      } 
 }
