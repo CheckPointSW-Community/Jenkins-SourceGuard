@@ -1,5 +1,5 @@
 pipeline {
-     agent any
+  
       environment {
          
               SG_CLIENT_ID = '3db9cc45-9312-4713-8ce9-6effd390185c'
@@ -36,7 +36,7 @@ pipeline {
 
          
          
-        stage('Docker image Build') {
+       stage('Docker image Build') {
            
              agent any
              
@@ -49,7 +49,9 @@ pipeline {
              
            }
         
-           
+       stage('Docker image Build') { 
+            
+               agent any
                steps{
 
                   sh 'docker save dhouari/sg -o  sg.tar'
@@ -58,5 +60,5 @@ pipeline {
              
             }
         
-      
+     } 
 }
