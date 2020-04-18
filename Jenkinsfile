@@ -1,5 +1,5 @@
 pipeline {
-  
+      agent any
       environment {
          
               SG_CLIENT_ID = '3db9cc45-9312-4713-8ce9-6effd390185c'
