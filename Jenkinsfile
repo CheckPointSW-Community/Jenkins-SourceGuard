@@ -7,11 +7,6 @@ pipeline {
              
                }
       
-     agent {
-
-               docker { image 'sourceguard/sourceguard-cli:latest' }
-
-                }
      stages {
     
         stage('Clone Github repository') {
@@ -28,8 +23,9 @@ pipeline {
             
              
              steps {
-
-                sh '/sourceguard-cli -src ./'
+               
+                sh 'chmod +x sourceguard-cli'
+                sh './sourceguard-cli -src .'
 
                 } 
           }
