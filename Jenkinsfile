@@ -2,8 +2,8 @@ pipeline {
       agent any
       environment {
          
-              SG_CLIENT_ID = credentials ('SG_CLIENT_ID')
-              SG_SECRET_KEY = credentials ('SG_SECRET_KEY')
+              SG_CLIENT_ID = 'fc721267-cc00-476b-963f-fff13902b663'
+              SG_SECRET_KEY = '26d91abf125f47198794149b594330fb'
              
                }
       
