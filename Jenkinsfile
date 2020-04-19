@@ -12,6 +12,8 @@ pipeline {
             post {
                    always {
                       echo "Send notifications for result: ${currentBuild.result}"
+                      slackSend (color: '#FF0000', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+
                
                    }
                 
