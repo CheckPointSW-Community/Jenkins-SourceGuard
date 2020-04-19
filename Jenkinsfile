@@ -7,12 +7,18 @@ pipeline {
         }
      stages {
           
-        slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'")
+           
+         stage('Clone Github repository') {
+             
+         
+           slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'")
 
-    
-        stage('Clone Github repository') {
            
            steps {
+                 
+                 
+                 
+             
              
              checkout scm
            
