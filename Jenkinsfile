@@ -12,7 +12,7 @@ pipeline {
             post {
                    always {
                       echo "Send notifications for result: ${currentBuild.result}"
-                      slackSend (color: '#FF0000', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                      slackSend channel: 'https://checkpointsoftwareorg.slack.com/archives/C0123T6CV8S', message: 'started'
 
                
                    }
@@ -82,7 +82,7 @@ pipeline {
                    always {
                       echo "Send notifications for result: ${currentBuild.result}"
                
-                      slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                     slackSend channel: 'https://checkpointsoftwareorg.slack.com/archives/C0123T6CV8S', message: 'failed'
 
                       }
                 
