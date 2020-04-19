@@ -1,6 +1,14 @@
 pipeline {
       agent any
       
+      environment {
+         
+              SG_CLIENT_ID = 'SG_CLIENT_ID'
+              SG_SECRET_KEY = 'SG_SECRET_KEY'
+              
+              
+             
+            }
       
      stages {
     
