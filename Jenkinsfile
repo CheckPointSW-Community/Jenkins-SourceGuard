@@ -6,6 +6,9 @@ pipeline {
       
         }
      stages {
+          
+        slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+
     
         stage('Clone Github repository') {
            
@@ -52,12 +55,19 @@ pipeline {
              
                  steps {
                     
-              sh './sourceguard-cli -img sg.tar'
+                   sh './sourceguard-cli -img sg.tar'
+                       
+                   }
+                 
+             
 
-              failure {
-               slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-              }
-           }
+                 post {
+                   always {
+                      echo "Send notifications for result: ${currentBuild.result}"
+               
+                      slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                      }
+                }
        }         
                 
     } 
