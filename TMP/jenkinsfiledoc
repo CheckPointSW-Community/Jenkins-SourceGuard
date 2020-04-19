@@ -19,16 +19,11 @@ pipeline {
        
          stage('SourceGuard Code Scan') {
             
-          
-            
-            agent {
-
-              docker { image 'sourceguard/sourceguard-cli:latest' }
-
-              }
             steps {
+            
+                sh 'chmod +x sourceguard-cli' 
 
-                sh '/sourceguard-cli --src ./'
+                sh './sourceguard-cli --src .'
 
                   }
               
@@ -62,15 +57,9 @@ pipeline {
               }
              
            }
+           
            stage('Docker image scan') {
-             
-             
             
-            agent {
-
-              docker { image 'sourceguard/sourceguard-cli:latest' }
-
-              }
              
                  steps {
                     
