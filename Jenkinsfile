@@ -45,18 +45,7 @@ pipeline {
              
            }
         
-       stage('Docker image prep') {
-           
-             
-             
-             steps{
-
-              sh 'docker save dhouari/sg -o sg.tar'
-             
-              
-              }
-             
-           }
+      
            
            stage('Docker image scan') {
             
