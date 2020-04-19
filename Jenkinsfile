@@ -9,14 +9,23 @@ pipeline {
           
            
          stage('Clone Github repository') {
-             
-         
-           slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'")
+            post {
+                   always {
+                      echo "Send notifications for result: ${currentBuild.result}"
+               
+                   }
+                
 
+                }
+                
+         
+           
            
            steps {
                  
                  
+                 
+             
                  
              
              
