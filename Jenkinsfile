@@ -1,8 +1,10 @@
 pipeline {
       agent any
+      environment {
+           SG_CLIENT_ID = credentials('SG_CLIENT_ID')
+           SG_SECRET_KEY = credentials("SG_SECRET_KEY")
       
-      
-      
+        }
      stages {
     
         stage('Clone Github repository') {
@@ -19,9 +21,7 @@ pipeline {
             
              
              steps {
-                
-                sh 'export SG_CLIENT_ID='SG_CLIENT_ID''
-                SH  'export SG_SECRET_KEY='SG_SECRET_KEY''
+               
                
                 sh 'chmod +x sourceguard-cli'
                 sh './sourceguard-cli -src .'
