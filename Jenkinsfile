@@ -11,7 +11,7 @@ pipeline {
             post {
                    always {
                       echo "Send notifications for result: ${currentBuild.result}"
-                      slackSend channel: 'https://checkpointsoftwareorg.slack.com/archives/C0123T6CV8S', message: 'star        
+                      slackSend channel: 'https://checkpointsoftwareorg.slack.com/archives/C0123T6CV8S', message: 'started'        
                    }
               }
                 
@@ -32,36 +32,26 @@ pipeline {
 
                 sh './sourceguard-cli --src .'
 
-                  }
-              
-             
+                   }
               }
-
-         
-         
+           
            stage('Docker image Build'){
              
              steps{
 
               sh 'docker build -t dhouari/sg .'
-             
               
-              }
-             
+             } 
            }
     
            stage('Docker image scan') {
             
              
-                 steps {
+               steps {
                     
-                   sh './sourceguard-cli -img sg.tar'
-                       
-                   
-                 
-             
-
-                 post {
+                  sh './sourceguard-cli -img sg.tar'
+                      
+                  post {
                    always {
                       echo "Send notifications for result: ${currentBuild.result}"
                
