@@ -1,10 +1,10 @@
 # Using the Check Point SourceGuard SAST Scanner in a Jenkins CICD Pipeline 
 
-## Step by Step DevSecOps Tutorial to integrate in a Jenkins pipeline used to build a node.js app and deployed in a docker container, uploaded to a registry and in K8s cluster.
+## DevSecOps Tutorial to integrate in a Jenkins pipeline used to build a node.js app and deployed in a docker container, uploaded to a registry and in K8s cluster.
 
-Node.js and other runtime apps can be packaged in a container image and deployed on Docker Hub or other registries. Devops teams are using
-a CICD methodolgy to build this node.js using the code checked in a SCM branch as Git or Github in order to build and package into a container image to be stored on Docker Hub or any other registry and deployed in a Kubernetes cluster for runtime.
-We will Github and Git as SCM or Source Code Management.
+Developpers are embracing devops as it is enabling the automate their application development and deployment at large scale.
+They using the CICD methodolgy to build their app s using the code checked in a SCM(source code manager) in order to build and package into a container image to be stored in a container registry or/and deployed in a Kubernetes cluster for runtime.
+We will be using Github and Git as SCM and Docker for container runtime. SecOps team are adopting DevSecOps to natively integrate security tools in the CI/CD toolchain in order to ensure the security of the build and runtime of their application prior to its deployment to production. This page will cover how the Check Point SourceGuard SAST scanner can be integrated in a Jenkins CICD pipeline to address the source code and container image scan and analysis against CVEs, vulnerabilities and know/unknown malware.
 
 The app will be a simple node.js app
 lets first provision the Jenkins server and I will be using jenkins on a ubuntu VM using Vbox
@@ -13,4 +13,4 @@ I chose to use VM as running jenkins in a docker container can be slow especiall
 
 Installation as follow:
 
-
+    ![header image](cicd.png)
