@@ -25,7 +25,7 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
  
  SourceGuard can be added to a Jenkins pipeline using the SourceGuard cli or SourceGuard container. 
  
- '''
+```
  
   stage('SourceGuard Code Scan') {
             agent {
@@ -51,7 +51,7 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
                    }
               }
               
- '''
+ ```
  
  The build workflow step would show as follow:
  
