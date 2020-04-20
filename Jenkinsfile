@@ -73,12 +73,12 @@ pipeline {
            stage('Publish to Docker Hub') {
            
                   steps {
-                        
-                     withDockerRegistry(["https://registry.hub.docker.com", "docker_hub"]) {
-                      sh 'docker push dhouari/sg'
-                      
-                    }
-               }     
-         }
+                        script { 
+                          withDockerRegistry(["https://registry.hub.docker.com", "docker_hub"]) {
+                          sh 'docker push dhouari/sg'
+                            }
+                      }
+                }     
+          }
     } 
 }
