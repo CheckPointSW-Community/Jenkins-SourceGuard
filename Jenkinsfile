@@ -60,9 +60,10 @@ pipeline {
                   steps {
                         
                      withDockerRegistry(["registry.hub.docker.com", "docker_hub"]) {
-                     sh 'docker push brightbox/terraform:latest'
-                     sh 'docker push brightbox/cli:latest'
+                      sh 'docker push brightbox/terraform:latest'
+                      sh 'docker push brightbox/cli:latest'
                     }
                }     
+           }
     } 
 }
