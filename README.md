@@ -67,7 +67,28 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
   ![Screenshot](log1.png)
   
   
+##  It is possible to run the Jenkins pipeline job as alert only and not failing a stage though the SourceGuard analysis is BLOCK by changing the scan stage as follow:
  
+  ```
+  
+  stage('SourceGuard Container Code Scan') {   
+          steps {   
+                   
+             script {      
+                 try {
+         
+                    sh './sourceguard-cli --img sg.tar'
+           
+                } catch (Exception e) {
+    
+                    echo "Stage failed, but we continue"  
+                     }
+                }
+            }
+         }
+   
+   ```
+  
 
    
         
