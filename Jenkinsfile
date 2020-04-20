@@ -35,9 +35,9 @@ pipeline {
                    }
               }
            
-           stage('Docker image Build and scan prep) {
+          stage('Docker image Build and scan prep) {
              
-             steps{
+            steps {
 
               sh 'docker build -t dhouari/sg .'
               sh 'docker save dhouari/sg -o sg.tar'
@@ -54,7 +54,7 @@ pipeline {
                
                  
                   }
-                }   
+               }   
            
            stage('Publish to Docker Hub') {
            
@@ -65,6 +65,6 @@ pipeline {
                       
                     }
                }     
-           }
+          }
     } 
 }
