@@ -18,7 +18,16 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
  By default Jenkins listens to port 8080 and I would recommend changing that. In this lab, I am using port 8282
 
  > You can change the default by changing the value of HTTP_PORT=  on /etc/default/jenkins
-
+ 
+ The Jenkins build is created using the pipeline option using my Github project as SCM and a declarative scripted pipeline. The workflow is described in the picture above. 
+ 
+ ![Screenshot](job1.png)
+ 
+ The Jenkins build failed as SourceGuard container image analysis reported it as BLOCK. 
+ 
+  ![Screenshot](log1.png)
+  
+  
  
 
    
