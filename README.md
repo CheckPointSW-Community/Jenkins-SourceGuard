@@ -23,6 +23,12 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
 
  ![Screenshot](script.png)
  
+ SourceGuard can be added to a Jenkins pipeline using the SourceGuard cli or SourceGuard container. 
+ 
+ ![Screenshot](script1.png)  
+ 
+ ![Screenshot](script2.png)
+ 
  The build workflow step would show as follow:
  
  ![Screenshot](job1.png)
