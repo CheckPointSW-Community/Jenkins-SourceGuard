@@ -35,7 +35,7 @@ pipeline {
                    }
               }
            
-          stage('Docker image Build and scan prep) {
+          stage('Docker image Build and scan prep') {
              
             steps {
 
