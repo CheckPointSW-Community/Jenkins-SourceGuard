@@ -5,7 +5,7 @@ pipeline {
            SG_SECRET_KEY = credentials("SG_SECRET_KEY")
       
         }
-     stages {
+  stages {
           
          stage('Clone Github repository') {
             post {
@@ -84,6 +84,6 @@ pipeline {
                       
                     }
                }     
-          }
+          
     } 
 }
