@@ -50,19 +50,19 @@ pipeline {
                steps {
                     
                   sh './sourceguard-cli -img sg.tar'
-                      
-                  post {
-                   always {
-                      echo "Send notifications for result: ${currentBuild.result}"
                
-                     slackSend channel: 'https://checkpointsoftwareorg.slack.com/archives/C0123T6CV8S', message: 'failed'
-
-                      }
-                
                  
                   }
-             
-               }         
-           }     
+                }   
+           
+           stage('Publish to Docker Hub') {
+           
+                  steps {
+                        
+                     withDockerRegistry(["registry.hub.docker.com", "docker_hub"]) {
+                     sh 'docker push brightbox/terraform:latest'
+                     sh 'docker push brightbox/cli:latest'
+                    }
+               }     
     } 
 }
