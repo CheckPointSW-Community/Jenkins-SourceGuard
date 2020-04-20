@@ -5,6 +5,7 @@
 Developpers are embracing devops as it is enabling the automate their application development and deployment at large scale.
 They using the CICD methodolgy to build their app s using the code checked in a SCM(source code manager) in order to build and package into a container image to be stored in a container registry or/and deployed in a Kubernetes cluster for runtime.
 We will be using Github and Git as SCM and Docker for container runtime. SecOps team are adopting DevSecOps to natively integrate security tools in the CI/CD toolchain in order to ensure the security of the build and runtime of their application prior to its deployment to production. This page will cover how the Check Point SourceGuard SAST scanner can be integrated in a Jenkins CICD pipeline to address the source code and container image scan and analysis against CVEs, vulnerabilities and know/unknown malware.
+
 #### For more info about SourceGuard,
 > https://github.com/chkp-dhouari/SourceGuard
 
@@ -48,7 +49,8 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
   stage('SourceGuard Code Scan') {
   
             steps {
-
+              
+                sh "chmod +x sourceguard-cli"
                 sh "sourceguard-cli --src ."
 
                    }
