@@ -23,7 +23,8 @@ pipeline {
              }
   
           }
-       
+       try {
+         
          stage('SourceGuard Code Scan') {
             
             steps {
@@ -33,7 +34,12 @@ pipeline {
                 sh './sourceguard-cli --src .'
 
                    }
-              }
+              } catch (Exception e) {
+    
+                echo "Stage failed, but we continue"  
+               
+               }
+           }
            
           stage('Docker image Build and scan prep') {
              
@@ -44,7 +50,8 @@ pipeline {
               
              } 
            }
-    
+     
+         try {
            stage('Docker image scan') {
             
              
@@ -54,7 +61,13 @@ pipeline {
                
                  
                   }
-               }   
+               } catch (Exception e) {
+    
+                echo "Stage failed, but we continue"  
+               
+               }
+               
+            }
            
            stage('Publish to Docker Hub') {
            
