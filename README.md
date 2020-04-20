@@ -19,7 +19,11 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
 
  > You can change the default by changing the value of HTTP_PORT=  on /etc/default/jenkins
  
- The Jenkins build is created using the pipeline option using my Github project as SCM and a declarative scripted pipeline. The workflow is described in the picture above. 
+ The Jenkins build is created using the pipeline option using my Github project as SCM and a declarative scripted pipeline. 
+
+ ![Screenshot](script.png)
+ 
+ The build workflow step would show as follow:
  
  ![Screenshot](job1.png)
  
