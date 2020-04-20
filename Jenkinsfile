@@ -76,7 +76,7 @@ pipeline {
            
                   steps {
                          script {
-                            docker.withRegistry( 'https://registry.hub.docker.com/repository/docker/dhouari/cpdevops', registryCredential ) {
+                            docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
                             dockerImage.push()
                               }
                         }
