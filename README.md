@@ -13,7 +13,8 @@ I chose to use VM as running jenkins in a docker container can be slow especiall
 
 Installation as follow:
 
-        ![header image](cicd.png)
+    ![alt text](cicd.png)
+        
         
    
         
