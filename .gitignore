@@ -1,3 +1,11 @@
+README.md
+TMP/
+JTEST/
+*.png
+*.json
+
+
+
 # Logs
 logs
 *.log
