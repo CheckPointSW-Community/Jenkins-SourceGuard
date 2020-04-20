@@ -35,11 +35,12 @@ pipeline {
                    }
               }
            
-           stage('Docker image Build'){
+           stage('Docker image Build and scan prep){
              
              steps{
 
               sh 'docker build -t dhouari/sg .'
+              sh 'docker save dhouari/sg -o sg.tar'
               
              } 
            }
@@ -60,8 +61,8 @@ pipeline {
                   steps {
                         
                      withDockerRegistry(["registry.hub.docker.com", "docker_hub"]) {
-                      sh 'docker push brightbox/terraform:latest'
-                      sh 'docker push brightbox/cli:latest'
+                      sh 'docker push dhouari/sg'
+                      
                     }
                }     
            }
