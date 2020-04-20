@@ -75,12 +75,18 @@ pipeline {
            stage('Publish to Docker Hub') {
            
                   steps {
-                         script {
-                            docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
-                            dockerImage.push("${env.BUILD_NUMBER}")
-                            dockerImage.push("latest")
-                        }
-                  }     
+                       script {
+                           try {
+                             docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
+                             dockerImage.push("${env.BUILD_NUMBER}")
+                             dockerImage.push("latest")
+                              }
+                          } catch (Exception e) {
+    
+                             echo "Stage failed, but we continue"  
+                             }      
+                        }     
+                  }
              }
     } 
 }
