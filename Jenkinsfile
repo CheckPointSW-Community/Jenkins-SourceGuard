@@ -60,7 +60,7 @@ pipeline {
            
                   steps {
                         
-                     withDockerRegistry(["registry.hub.docker.com", "docker_hub"]) {
+                     withDockerRegistry(["https://registry.hub.docker.com", "docker_hub"]) {
                       sh 'docker push dhouari/sg'
                       
                     }
