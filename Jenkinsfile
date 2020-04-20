@@ -3,6 +3,8 @@ pipeline {
       environment {
            SG_CLIENT_ID = credentials("SG_CLIENT_ID")
            SG_SECRET_KEY = credentials("SG_SECRET_KEY")
+           registry = "dhouari/cpdevops"
+           registryCredential = 'docker_hub'
       
         }
   stages {
@@ -73,12 +75,12 @@ pipeline {
            stage('Publish to Docker Hub') {
            
                   steps {
-                        script { 
-                          withDockerRegistry(["https://registry.hub.docker.com", "docker_hub"]) {
-                          sh 'docker push dhouari/sg'
-                            }
-                      }
-                }     
-          }
+                         script {
+                            docker.withRegistry( 'dhouari/sg', registryCredential ) {
+                            dockerImage.push()
+                              }
+                        }
+                  }     
+             }
     } 
 }
