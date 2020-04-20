@@ -5,7 +5,7 @@ pipeline {
            SG_SECRET_KEY = credentials("SG_SECRET_KEY")
            registry = "dhouari/cpdevops"
            registryCredential = 'docker_hub'
-      
+           dockerImage = 'dhouari/sg'
         }
   stages {
           
@@ -76,7 +76,7 @@ pipeline {
            
                   steps {
                          script {
-                            docker.withRegistry( 'dhouari/sg', registryCredential ) {
+                            docker.withRegistry( 'https://registry.hub.docker.com/repository/docker/dhouari/cpdevops', registryCredential ) {
                             dockerImage.push()
                               }
                         }
