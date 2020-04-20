@@ -67,7 +67,7 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
   ![Screenshot](log1.png)
   
   
-##  It is possible to run the Jenkins pipeline job as alert only and not failing a stage though the SourceGuard analysis is BLOCK by changing the scan stage as follow:
+###  It is possible to run the Jenkins pipeline job as Alert only and not failing a stage though the SourceGuard analysis is BLOCK by changing the scan stage as follow:
  
   ```
   
