@@ -34,7 +34,7 @@ pipeline {
                 sh './sourceguard-cli --src .'
 
                    }
-              } catch (Exception e) {
+              } catch(Exception e) {
     
                 echo "Stage failed, but we continue"  
                
@@ -61,7 +61,7 @@ pipeline {
                
                  
                   }
-               } catch (Exception e) {
+               } catch(Exception e) {
     
                 echo "Stage failed, but we continue"  
                
