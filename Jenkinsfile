@@ -14,11 +14,11 @@ pipeline {
               
              checkout scm
            
-             }
+              }
   
-          }
+           }
        
-         s
+         
            
           stage('Docker image Build and scan prep') {
              
