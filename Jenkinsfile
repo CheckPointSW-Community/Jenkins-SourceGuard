@@ -23,9 +23,11 @@ pipeline {
              }
   
           }
-       try {
+           
+     script {      
+         try {
          
-         stage('SourceGuard Code Scan') {
+          stage('SourceGuard Code Scan') {
             
             steps {
             
@@ -34,11 +36,15 @@ pipeline {
                 sh './sourceguard-cli --src .'
 
                    }
-              } catch(Exception e) {
+              } 
+                catch (Exception e) {
     
-                echo "Stage failed, but we continue"  
+                 echo "Stage failed, but we continue"  
                
                }
+               
+               
+         }
            
            
           stage('Docker image Build and scan prep') {
@@ -50,11 +56,9 @@ pipeline {
               
              } 
            }
-     
+       script {
          try {
            stage('Docker image scan') {
-            
-             
                steps {
                     
                   sh './sourceguard-cli -img sg.tar'
@@ -66,6 +70,7 @@ pipeline {
                 echo "Stage failed, but we continue"  
                
                }
+         }
                
             
            
