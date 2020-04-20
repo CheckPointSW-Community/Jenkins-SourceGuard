@@ -32,7 +32,7 @@ pipeline {
               }
             steps {
 
-                sh 'sourceguard-cli --src .'
+                sh '/sourceguard-cli --src ./'
 
                    }
               }
@@ -51,12 +51,12 @@ pipeline {
             
                agent {
 
-              docker { image 'sourceguard/sourceguard-cli' }
+                 docker { image 'sourceguard/sourceguard-cli' }
    
-                  }
+                   }
                steps {
                     
-                  sh 'sourceguard-cli -img sg.tar'
+                  sh '/sourceguard-cli -img sg.tar/'
                
                  
                   }
