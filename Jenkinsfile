@@ -39,7 +39,7 @@ pipeline {
                 echo "Stage failed, but we continue"  
                
                }
-           }
+           
            
           stage('Docker image Build and scan prep') {
              
@@ -67,7 +67,7 @@ pipeline {
                
                }
                
-            }
+            
            
            stage('Publish to Docker Hub') {
            
