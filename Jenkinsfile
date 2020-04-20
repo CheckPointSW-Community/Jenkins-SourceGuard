@@ -36,13 +36,15 @@ pipeline {
                 sh './sourceguard-cli --src .'
 
                    }
+                
+                 }
                } catch (Exception e) {
     
                  echo "Stage failed, but we continue"  
                
                }
                
-           } 
+           
          }
            
            
@@ -62,9 +64,9 @@ pipeline {
                     
                   sh './sourceguard-cli -img sg.tar'
                
-                 
+                    }
                   }
-               } catch(Exception e) {
+               } catch (Exception e) {
     
                 echo "Stage failed, but we continue"  
                
