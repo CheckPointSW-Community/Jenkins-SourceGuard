@@ -33,7 +33,7 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
   
  This will take you to the pipeline configuration step. The first step is the General section where I suggest chosing to discard old build to save disk space which can fillup quickly and the GitHub project by pasting the GitHUb project URL.
  
- ![Screenshot](script2.png)
+ ![Screenshot](script4.png)
  
  You can schedule the time where the Builds are trigerred and the final step is to configure the Pipeline section that define your SCM and Jenkinsfile which the Jenkins pipeline script. 
  
