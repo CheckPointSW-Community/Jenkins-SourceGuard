@@ -3,7 +3,7 @@ pipeline {
       environment {
            SG_CLIENT_ID = credentials("SG_CLIENT_ID")
            SG_SECRET_KEY = credentials("SG_SECRET_KEY")
-           registry = "dhouari/cpdevops"
+           registry = "https://registry.hub.docker.com"
            registryCredential = 'docker_hub'
            dockerImage = 'dhouari/sg'
         }
@@ -55,7 +55,7 @@ pipeline {
               
              } 
            }
-       stage('SourceGuard Container Code Scan') {   
+       stage('SourceGuard Container Image Scan') {   
           steps {   
                    
              script {      
@@ -65,7 +65,7 @@ pipeline {
            
                 } catch (Exception e) {
     
-                    echo "Stage failed, but we continue"  
+                    echo "Analysis is BLOCK and recommend not using the container image"  
                      }
                 }
             }
@@ -77,9 +77,9 @@ pipeline {
                   steps {
                        script {
                            try {
-                             docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
-                             dockerImage.push("${env.BUILD_NUMBER}")
-                             dockerImage.push("latest")
+                             docker.withRegistry('registry', 'docker_hub') {
+                              dockerImage.push("${env.BUILD_NUMBER}")
+                              dockerImage.push("latest")
                               }
                           } catch (Exception e) {
     
