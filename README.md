@@ -89,7 +89,7 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
    
    ```
   
-
+![Screenshot](job3.png)
    
         
         
