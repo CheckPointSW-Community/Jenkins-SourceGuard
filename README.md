@@ -35,11 +35,15 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
  
  ![Screenshot](script4.png)
  
+ 
  You can schedule the time where the Builds are trigerred and the final step is to configure the Pipeline section that define your SCM and Jenkinsfile which the Jenkins pipeline script. 
  
  ![Screenshot](script5.png)
  
+ 
  I am using the Jenkins 2.x declarative pipeline which needs to be saved as jenkinsfile in your SCM for the build 
+ https://jenkins.io/doc/book/pipeline/syntax/#declarative-pipeline
+ 
 
  ![Screenshot](script.png)
  
