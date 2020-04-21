@@ -23,7 +23,23 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
 
  > You can change the default by changing the value of HTTP_PORT=  on /etc/default/jenkins
  
- The Jenkins build is created using the pipeline option using my Github project as SCM and a declarative scripted pipeline detailed in the  Jenkinsfile
+ The First step is to create a new pipeline on Jenkin 
+ 
+  ![Screenshot](new.png)
+  
+ Assign a name for the pipeline and chose the pipeline option as I will be using a Jenkins declarative pipeline script then press on OK
+ 
+  ![Screenshot](script1.png)
+  
+ This will take you to the pipeline configuration step. The first step is the General section where I suggest chosing to discard old build to save disk space which can fillup quickly and the GitHub project by pasting the GitHUb project URL.
+ 
+ ![Screenshot](script2.png)
+ 
+ You can schedule the time where the Builds are trigerred and the final step is to configure the Pipeline section that define your SCM and Jenkinsfile which the Jenkins pipeline script. 
+ 
+ ![Screenshot](script5.png)
+ 
+ I am using the Jenkins 2.x declarative pipeline which needs to be saved as jenkinsfile in your SCM for the build 
 
  ![Screenshot](script.png)
  
@@ -90,6 +106,7 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
    ```
   
 ![Screenshot](job3.png)
+
    
         
         
