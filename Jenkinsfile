@@ -39,7 +39,7 @@ pipeline {
            
                } catch (Exception e) {
     
-                 echo "Stage failed, but we continue"  
+                 echo "Code Analysis is BLOCK and recommend not using the source code"  
                   }
               }
             }
