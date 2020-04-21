@@ -58,6 +58,7 @@ sudo apt-get install jenkins
 
  ![Screenshot](script.png)
  
+ 
  SourceGuard can be added to a Jenkins declarative pipelineor #### Pipeline as Code using the SourceGuard cli or SourceGuard container. 
  
 ```
@@ -91,9 +92,12 @@ sudo apt-get install jenkins
  
  The build workflow step would show as follow:
  
+ 
  ![Screenshot](job1.png)
  
+ 
  The Jenkins build failed as SourceGuard container image analysis reported it as BLOCK. 
+ 
  
   ![Screenshot](log1.png)
   
@@ -119,6 +123,7 @@ sudo apt-get install jenkins
          }
    
    ```
+  
   
 ![Screenshot](job3.png)
 
