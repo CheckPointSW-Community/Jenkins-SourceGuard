@@ -17,7 +17,7 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
  
  The first step is to install Jenkins on Ubuntu
  
- '''
+```
 
 wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
 
@@ -27,7 +27,8 @@ sudo apt-get update
 
 sudo apt-get install jenkins
 
- '''
+
+```
  
  By default Jenkins listens to port 8080 and I would recommend changing that. In this lab, I am using port 8282
 
