@@ -1,7 +1,7 @@
-README.md
-TMP/
-JTEST/
-jenkins/scripts/
+.README.md
+.TMP/
+.JTEST/
+.jenkins/scripts/
 *.png
 *.json
 
