@@ -10,13 +10,7 @@ pipeline {
   stages {
           
          stage('Clone Github repository') {
-            post {
-                   always {
-                      echo "Send notifications for result: ${currentBuild.result}"
-                      slackSend channel: 'https://checkpointsoftwareorg.slack.com/archives/C0123T6CV8S', message: 'started'        
-                   }
-              }
-                
+            
     
            steps {
               
