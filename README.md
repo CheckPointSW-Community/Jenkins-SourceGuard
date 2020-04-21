@@ -71,7 +71,7 @@ lets first provision the Jenkins server and I will be using jenkins on a ubuntu 
  
   ```
   
-  stage('SourceGuard Container Code Scan') {   
+  stage('SourceGuard Container Image Scan') {   
           steps {   
                    
              script {      
