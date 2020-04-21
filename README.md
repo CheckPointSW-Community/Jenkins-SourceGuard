@@ -1,6 +1,6 @@
-# Using the Check Point SourceGuard SAST Scanner in a Jenkins CICD Pipeline 
+# Using the Check Point SourceGuard SAST Scanner using a Jenkins Pipeline as Code.
 
-## DevSecOps Tutorial to integrate in a Jenkins pipeline used to build a node.js app and deployed in a docker container, uploaded to a registry and in K8s cluster.
+## DevSecOps Tutorial to integrate SourceGuard in a Jenkins pipeline used to build a node.js app and deployed in a docker container, uploaded to a registry or deployed in K8s cluster.
 
 Developpers are embracing devops as it is enabling the automate their application development and deployment at large scale.
 They using the CICD methodolgy to build their app s using the code checked in a SCM(source code manager) in order to build and package into a container image to be stored in a container registry or/and deployed in a Kubernetes cluster for runtime.
@@ -58,7 +58,7 @@ sudo apt-get install jenkins
 
  ![Screenshot](script.png)
  
- SourceGuard can be added to a Jenkins pipeline using the SourceGuard cli or SourceGuard container. 
+ SourceGuard can be added to a Jenkins declarative pipelineor #### Pipeline as Code using the SourceGuard cli or SourceGuard container. 
  
 ```
  
