@@ -52,21 +52,17 @@ pipeline {
        stage('SourceGuard Container Image Scan') {   
           steps {   
                    
-             script {      
-                 try {
+           
          
                     sh './sourceguard-cli --img sg.tar'
            
-                } catch (Exception e) {
-    
-                    echo "Analysis is BLOCK and recommend not using the container image"  
-                     }
                 }
+             
+            
             }
-         }
             
            
-           stage('Publish to Docker Hub') {
+        stage('Publish to Docker Hub') {
            
                   steps {
                        script {
