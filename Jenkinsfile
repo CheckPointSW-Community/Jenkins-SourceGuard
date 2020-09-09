@@ -3,9 +3,7 @@ pipeline {
       environment {
            SG_CLIENT_ID = credentials("SG_CLIENT_ID")
            SG_SECRET_KEY = credentials("SG_SECRET_KEY")
-           registry = "https://registry.hub.docker.com"
-           registryCredential = 'docker_hub'
-           dockerImage = 'dhouari/sg'
+        
         }
   stages {
           
@@ -61,22 +59,5 @@ pipeline {
             
             }
             
-           
-        stage('Publish to Docker Hub') {
-           
-                  steps {
-                       script {
-                           try {
-                             docker.withRegistry('registry', 'docker_hub') {
-                              dockerImage.push("${env.BUILD_NUMBER}")
-                              dockerImage.push("latest")
-                              }
-                          } catch (Exception e) {
-    
-                             echo "Stage failed, but we continue"  
-                             }      
-                        }     
-                  }
-             }
-    } 
+            
 }
